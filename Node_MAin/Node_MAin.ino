@@ -1,3 +1,11 @@
+/*
+Project : One-Meter-Clip
+language : c++
+Created On : 10-02-2021
+2nd Year iot Project
+*Run On nodemcu
+*/
+
 #include <ESP8266WiFi.h>
 #include <FirebaseESP8266.h>
 
@@ -211,29 +219,29 @@ void loop() {
   }
 
       
-  if(moisture_percentage<10){
-    pinMode(relay, HIGH);
-    digitalWrite (GLED, HIGH) ;
-    delay(1000);
+  if(moisture_percentage<1.3){
     lcd.clear();
     lcd.setCursor(0,0);
     lcd.print("Watering ");
     lcd.setCursor(0,1);
     lcd.print("Plant.... ");
+    pinMode(relay, HIGH);
+    digitalWrite (GLED, HIGH) ;
+    delay(1000);
     pinMode(relay, LOW);
    }
 
    if(Firebase.getInt(fbdo, "/pump"))
   {
     if(fbdo.intData()==1){
-      pinMode(relay, HIGH);
-      digitalWrite (GLED, HIGH) ;
-      delay(1000);
       lcd.clear();
       lcd.setCursor(0,0);
       lcd.print("Watering ");
       lcd.setCursor(0,1);
       lcd.print("Plant.... ");
+      pinMode(relay, HIGH);
+      digitalWrite (GLED, HIGH) ;
+      delay(1000);
       pinMode(relay, LOW);
       if(Firebase.setInt(fbdo, "/pump", 0))
       {
