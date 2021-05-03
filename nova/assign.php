@@ -76,7 +76,7 @@ if (isset($_POST['uname'])) {
         <label class="text-white" for="inputPassword4">Password</label>
         <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="pass">
         <br>
-        <input type="submit" value="Login" class="btn btn-primary">
+        <input type="submit" value="Activate" class="btn btn-primary">
       </form>
       <br><br><br>
       <h1>Active Pots</h1>
